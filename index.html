@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGuard PT & Rehabilitasyon | Sürücü Ergonomi Merkezi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                            950: '#090a0f',
+                            900: '#12141c',
+                            800: '#1b1e29',
+                            700: '#282d3d',
+                            600: '#3d445c',
+                        },
+                        moto: {
+                            orange: '#ff5500',
+                            yellow: '#facc15',
+                            accent: '#ff3300'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Industrial Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090a0f;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 85, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(250, 204, 21, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        /* Custom Carbon Fiber Texture Simulation */
+        .carbon-bg {
+            background: linear-gradient(135deg, #12141c 25%, transparent 25%) -50px 0/ 100px 100px,
+                        linear-gradient(225deg, #12141c 25%, transparent 25%) -50px 0/ 100px 100px,
+                        linear-gradient(315deg, #12141c 25%, transparent 25%) 0 0/ 100px 100px,
+                        linear-gradient(45deg, #12141c 25%, #1b1e29 25%) 0 0/ 100px 100px;
+        }
+        .glow-orange {
+            box-shadow: 0 0 25px rgba(255, 85, 0, 0.25);
+        }
+        .glow-yellow {
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #282d3d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff5500;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-moto-orange selection:text-white">
+
+    <!-- Header Section -->
+    <header class="border-b border-industrial-700 bg-industrial-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-moto-orange to-moto-yellow flex items-center justify-center shadow-lg shadow-moto-orange/30">
+                    <i class="fa-solid fa-motorcycle text-industrial-950 text-xl font-black"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-black tracking-wider text-white uppercase italic">MOTOGUARD <span class="text-moto-orange">PT</span></h1>
+                    <p class="text-xs text-gray-400 font-medium tracking-wide">Motosiklet Sürücüleri İçin Fizyoterapi & Rehabilitasyon</p>
+                </div>
+            </div>
+            
+            <!-- Status Badge -->
+            <div class="hidden sm:flex items-center space-x-2 bg-industrial-800 border border-industrial-700 px-4 py-2 rounded-xl">
+                <span class="w-2.5 h-2.5 rounded-full bg-moto-orange animate-pulse"></span>
+                <span class="text-xs font-semibold text-gray-300 uppercase tracking-wider">Ergonomik Koruma Modu Aktif</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Hero / Mission Banner -->
+        <section class="mb-10 bg-industrial-900 border border-industrial-700/80 rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none text-9xl text-moto-orange">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="max-w-3xl relative z-10">
+                <span class="inline-block bg-moto-orange/10 text-moto-orange text-xs font-bold uppercase px-3 py-1 rounded-full mb-4 tracking-wider border border-moto-orange/20">
+                    Sürüş Güvenliği & Omurga Sağlığı
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Asfaltta Performans, <span class="text-transparent bg-clip-text bg-gradient-to-r from-moto-orange to-moto-yellow">Kokpitte Konfor</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-6">
+                    Uzun süreli öne eğilme (sport/touring sürüşü), sert frenajlarda bileklere ve bele binen yükler, virajlardaki merkezkaç kuvvetleri omurganızı ve eklemlerinizi tüketir. Bu özel rehabilitasyon protokolü; duruş bozukluklarını düzeltmek, bel/boyun fıtığı riskini azaltmak ve sürüş dayanıklılığınızı artırmak için tasarlandı.
+                </p>
+                
+                <!-- Quick Stats / Progress Overview -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-industrial-700/60">
+                    <div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Toplam Program</div>
+                        <div class="text-lg font-bold text-white mt-0.5">3 Gün / Hafta</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Seans Süresi</div>
+                        <div class="text-lg font-bold text-white mt-0.5">30 - 40 Dakika</div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Tamamlanan Egzersiz</div>
+                        <div id="completed-counter" class="text-lg font-bold text-moto-orange mt-0.5">0 / 20</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Selection Navigation -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8">
+            <div class="grid grid-cols-3 gap-2 sm:flex sm:space-x-3 bg-industrial-900 p-1.5 rounded-2xl border border-industrial-700">
+                <button onclick="switchTab('monday')" id="tab-btn-monday" class="tab-btn flex-1 sm:flex-initial px-4 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 bg-moto-orange text-industrial-950 shadow-lg shadow-moto-orange/20 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-anchor"></i>
+                    <span>Pazartesi <span class="hidden md:inline">(Stabilizasyon)</span></span>
+                </button>
+                <button onclick="switchTab('wednesday')" id="tab-btn-wednesday" class="tab-btn flex-1 sm:flex-initial px-4 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 text-gray-400 hover:text-white hover:bg-industrial-800 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Çarşamba <span class="hidden md:inline">(Dayanıklılık)</span></span>
+                </button>
+                <button onclick="switchTab('friday')" id="tab-btn-friday" class="tab-btn flex-1 sm:flex-initial px-4 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 text-gray-400 hover:text-white hover:bg-industrial-800 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-gears"></i>
+                    <span>Cuma <span class="hidden md:inline">(Fonksiyonel Kuvvet)</span></span>
+                </button>
+            </div>
+
+            <!-- Timer Widget Trigger / Quick Actions -->
+            <div class="flex items-center justify-end space-x-3">
+                <button onclick="openTimerModal()" class="w-full sm:w-auto bg-industrial-800 hover:bg-industrial-700 border border-industrial-600 text-white px-5 py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center space-x-2 group">
+                    <i class="fa-solid fa-stopwatch text-moto-orange group-hover:rotate-12 transition-transform"></i>
+                    <span>Antrenman Kronometresi</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Contents Wrapper -->
+        <div id="tab-content-container">
+
+            <!-- PROGRAM A: PAZARTESİ (Stabilizasyon) -->
+            <div id="content-monday" class="program-tab-content space-y-4">
+                <div class="bg-industrial-900 border-l-4 border-moto-orange p-5 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-moto-orange text-xs font-bold uppercase tracking-wider">PROGRAM A • 30-35 DAKİKA</span>
+                        <h3 class="text-xl font-black text-white mt-1">Omurga ve Core Stabilizasyon Protokolü</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Uzun süreli sürüşlerde omurgayı dik tutan derin kasları aktive eder ve bel omurlarını korur.</p>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-industrial-800 px-4 py-2 rounded-xl self-start sm:self-auto">
+                        <i class="fa-solid fa-clock text-moto-yellow"></i>
+                        <span class="text-xs font-bold text-gray-300">Süre: 30-35 dk</span>
+                    </div>
+                </div>
+
+                <!-- Exercise Cards Grid (Injected via JS or Static HTML) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="list-monday">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- PROGRAM B: ÇARŞAMBA (Dayanıklılık) -->
+            <div id="content-wednesday" class="program-tab-content hidden space-y-4">
+                <div class="bg-industrial-900 border-l-4 border-moto-yellow p-5 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-moto-yellow text-xs font-bold uppercase tracking-wider">PROGRAM B • 30-40 DAKİKA</span>
+                        <h3 class="text-xl font-black text-white mt-1">Statik Dayanıkllık ve Gövde Kalkanı</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Vibrasyonlara, bozuk yollara ve uzun yolculuklardaki yorgunluğa karşı direnci artırır.</p>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-industrial-800 px-4 py-2 rounded-xl self-start sm:self-auto">
+                        <i class="fa-solid fa-clock text-moto-yellow"></i>
+                        <span class="text-xs font-bold text-gray-300">Süre: 30-40 dk</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="list-wednesday">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- PROGRAM C: CUMA (Fonksiyonel Kuvvet) -->
+            <div id="content-friday" class="program-tab-content hidden space-y-4">
+                <div class="bg-industrial-900 border-l-4 border-moto-accent p-5 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-moto-accent text-xs font-bold uppercase tracking-wider">PROGRAM C • 30-40 DAKİKA</span>
+                        <h3 class="text-xl font-black text-white mt-1">Fonksiyonel Kuvvet ve Kalça Aktivasyonu</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Motoru kontrol etme, ayak peglerine baskı uygulama ve ani manevralar için alt ekstremite gücü.</p>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-industrial-800 px-4 py-2 rounded-xl self-start sm:self-auto">
+                        <i class="fa-solid fa-clock text-moto-yellow"></i>
+                        <span class="text-xs font-bold text-gray-300">Süre: 30-40 dk</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="list-friday">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Interactive Stopwatch Modal -->
+    <div id="timer-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-industrial-900 border border-industrial-700 w-full max-w-md rounded-3xl p-6 relative shadow-2xl">
+            <button onclick="closeTimerModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <span class="text-moto-orange text-xs font-bold uppercase tracking-wider">Antrenman Kronometresi</span>
+                <h3 class="text-xl font-bold text-white mt-1">Set & Dinlenme Sayaç</h3>
+            </div>
+            
+            <div class="bg-industrial-950 border border-industrial-800 rounded-2xl p-6 text-center mb-6">
+                <div id="timer-display" class="text-5xl font-mono font-black text-moto-yellow tracking-wider mb-2">00:00</div>
+                <div id="timer-status" class="text-xs font-bold text-gray-400 uppercase tracking-widest">Hazır</div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 mb-4">
+                <button onclick="setTimerSeconds(30)" class="bg-industrial-800 hover:bg-industrial-700 text-gray-300 py-2.5 rounded-xl text-xs font-bold transition-all border border-industrial-700">30 Sn</button>
+                <button onclick="setTimerSeconds(60)" class="bg-industrial-800 hover:bg-industrial-700 text-gray-300 py-2.5 rounded-xl text-xs font-bold transition-all border border-industrial-700">60 Sn</button>
+                <button onclick="setTimerSeconds(90)" class="bg-industrial-800 hover:bg-industrial-700 text-gray-300 py-2.5 rounded-xl text-xs font-bold transition-all border border-industrial-700">90 Sn</button>
+            </div>
+
+            <div class="flex space-x-3">
+                <button onclick="toggleTimer()" id="timer-toggle-btn" class="flex-1 bg-moto-orange hover:bg-moto-accent text-industrial-950 font-extrabold py-3 rounded-xl transition-all uppercase text-sm shadow-lg shadow-moto-orange/30">
+                    Başlat
+                </button>
+                <button onclick="resetTimer()" class="bg-industrial-800 hover:bg-industrial-700 text-white px-5 py-3 rounded-xl font-bold transition-all border border-industrial-700">
+                    Sıfırla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast / Custom Alert -->
+    <div id="custom-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-industrial-800 border border-moto-orange text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-moto-orange text-lg"></i>
+        <span id="toast-message" class="text-sm font-semibold">İşlem başarıyla tamamlandı.</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-industrial-800 bg-industrial-900/50 mt-16 py-8 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 MotoGuard PT & Rehabilitasyon Sistemleri. Tüm hakları saklıdır. Güvenli sürüşler diler!</p>
+        </div>
+    </footer>
+
+    <!-- Application Logic Script -->
+    <script>
+        // Exercise Data Structure with Motorist Ergonomic Rehabilitation Tips and Direct Image URLs
+        const programs = {
+            monday: [
+                {
+                    id: 'm1',
+                    name: '1. Cat-Camel',
+                    sets: '2 Set × 10 Tekrar',
+                    desc: 'Omurgayı fleksiyona ve ekstansiyona nazikçe hareket ettirerek omurga disklerinin beslenmesini sağlar.',
+                    motoTip: 'Motor üzerinde saatlerce kambur duruşla (sport sürüşü) kilitlenen sırt omurgasının esnekliğini geri kazandırır ve bel tutulmalarını önler.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGUx2TPvYITfNYep6Bfjq90OWJrfNNx_OjtFZ2lNAXBtseOxa_WeLBuyg&s=10'
+                },
+                {
+                    id: 'm2',
+                    name: '2. Pelvik tilt',
+                    sets: '3 Set × 10 Tekrar',
+                    desc: 'Pelvisin öne ve arkaya kontrollü hareketiyle bel çukurlarını nötralize eder.',
+                    motoTip: 'Uzun yolculuklarda kuyruk sokumu ve alt bel bölgesine binen tek taraflı baskıyı dengeler, alt sırt ağrısını azaltır.',
+                    imgUrl: 'https://cdn.vectorstock.com/i/1000v/99/02/pelvic-tilt-exercise-woman-marching-vector-48059902.jpg'
+                },
+                {
+                    id: 'm3',
+                    name: '3. Abdominal bracing',
+                    sets: '3 Set × 30 Saniye',
+                    desc: 'Karın içi basıncını artırarak omurgayı çepeçevre saran iç korse kaslarını kasma.',
+                    motoTip: 'Sert frenleme ve ani çukura girme anlarında omurganın kilitlenmesini sağlayarak bel omurlarını darbelere karşı korur.',
+                    imgUrl: 'https://fitnessprogramer.com/wp-content/uploads/2022/08/Abdominal-bracing-exercise.png'
+                },
+                {
+                    id: 'm4',
+                    name: '4. Dead Bug',
+                    sets: '3 Set × 8 Tekrar (Her bacak)',
+                    desc: 'Sırtüstü pozisyonda kol ve bacaklar hareket ederken karın duvarını ve belü yerde sabit tutma.',
+                    motoTip: 'Viraj alırken vücut ağırlığını transfer ederken gövdenin dik kalmasını ve merkez stabilizasyonunu artırır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73dmkUfjLViVvl-5gd8zqK5lfqJMMGcvg-WwmKZXOdE_03dYiTAxFfK0&s=10'
+                },
+                {
+                    id: 'm5',
+                    name: '5. Bird Dog',
+                    sets: '3 Set × 10 Tekrar',
+                    desc: 'Dört ayak üstündeyken çapraz kol ve bacak uzatarak sırt/kalça koordinasyonunu sağlama.',
+                    motoTip: 'Gidon hakimiyetini artırırken boyun ve sırt kaslarının dengeli çalışmasını destekler, yorgunluğu geciktirir.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0VaPoCUO0lKmjB_LCAt4yMKWPyYNTIFRWSRy-2qAye5yqr5hAM2rz8g&s=10'
+                },
+                {
+                    id: 'm6',
+                    name: '6. Glute Bridge',
+                    sets: '3 Set × 12 Tekrar',
+                    desc: 'Sırtüstü dizler bükülü iken kalçayı yukarı kaldırma ve gluteus kaslarını aktive etme.',
+                    motoTip: 'Uzun süreli selede oturmada pasifleşen kalça kaslarını uyandırır, bel bölgesine binen yükü kalçalara paylaştırır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYaTClPZ3jf-e5G2NwUacb2E6Vq1FpH7vrda9Jh729870pLdO-0ap9KAH5&s=10'
+                },
+                {
+                    id: 'm7',
+                    name: '7. İliopsoas germe',
+                    sets: '2 Set × 30 Sn (Her taraf)',
+                    desc: 'Tek diz yerde öne hamle pozisyonunda kalça önü (psoas) kasını uzatma.',
+                    motoTip: 'Motor üstündeki sürekli bükülü kalça pozisyonundan (fleksiyon) kaynaklanan kalça büzüşmesini ve bel çukurlanmasını engeller.',
+                    imgUrl: 'https://thumb.ac-illust.com/7c/7c627309ac1ca2d391c6fe944f35cdde_t.jpeg'
+                }
+            ],
+            wednesday: [
+                {
+                    id: 'w1',
+                    name: '1. Cat-Camel',
+                    sets: '2 Set × 10 Tekrar',
+                    desc: 'Omurgayı fleksiyona ve ekstansiyona nazikçe hareket ettirerek omurga disklerinin beslenmesini sağlar.',
+                    motoTip: 'Hafta ortası sürüş yorgunluğunu atmak ve omurga içi sıvı dolaşımını canlandırmak için temel ısınmadır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGUx2TPvYITfNYep6Bfjq90OWJrfNNx_OjtFZ2lNAXBtseOxa_WeLBuyg&s=10'
+                },
+                {
+                    id: 'w2',
+                    name: '2. Abdominal bracing',
+                    sets: '3 Set × 30 Saniye',
+                    desc: 'Derin karın kaslarını izometrik olarak kasarak gövdeyi rijit tutma.',
+                    motoTip: 'Yüksek hızlarda rüzgar direncine karşı gövdeyi dik tutarken omurgayı destekleyen temel kalkan görevi görür.',
+                    imgUrl: 'https://fitnessprogramer.com/wp-content/uploads/2022/08/Abdominal-bracing-exercise.png'
+                },
+                {
+                    id: 'w3',
+                    name: '3. Plank',
+                    sets: '3 Set × 30-45 Saniye',
+                    desc: 'Ön kollar ve ayak parmak uçlarında vücudu düz bir hat halinde tutma.',
+                    motoTip: 'Tüm üst vücut ve kor kaslarının direncini artırarak gidona binen vücut ağırlığını azaltır, kollardaki uyuşmayı önler.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR14Kgs0BJipe999XhQzojnhBK8KxC5X2l_TyL7MPunqnxh_SlKbso9pOMZ&s=10'
+                },
+                {
+                    id: 'w4',
+                    name: '4. Side Plank',
+                    sets: '3 Set × 20-30 Sn (Her taraf)',
+                    desc: 'Yanda tekdirsek ve ayak kenarında vücudu kaldırma.',
+                    motoTip: 'Virajlarda motosikleti yatırırken ve vücut ağırlığını kaydırırken kullanılan yan gövde (oblik) kaslarını güçlendirir.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ4x6tojKErd53TCJKO_evmWnLP47VjDGG36syLmmWXOp0aoRKkYDQ3Mqw&s=10'
+                },
+                {
+                    id: 'w5',
+                    name: '5. Modified Curl-Up',
+                    sets: '3 Set × 10 Tekrar',
+                    desc: 'McGill protokolüne uygun, boynu zorlamadan sadece kürek kemiklerini yerden kaldıran karın egzersizi.',
+                    motoTip: 'Boyun fıtığına yol açabilecek klasik mekik hareketinden kaçınarak güvenli karın dayanıklılığı sağlar.',
+                    imgUrl: 'https://cdn.vectorstock.com/i/1000v/66/95/mcgill-curl-up-exercise-vector-62616695.jpg'
+                },
+                {
+                    id: 'w6',
+                    name: '6. Clamshell',
+                    sets: '3 Set × 15 Tekrar',
+                    desc: 'Yatarken dizleri büküp istiridye açar gibi üst bacağı yukarı kaldırma.',
+                    motoTip: 'Kalçanın dış rotatörlerini güçlendirerek uzun sürüşlerde kalça eklemi stabilizasyonunu ve bacak konforunu artırır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgbnExo78Dbi5T_M2EAN3lDQD6sOhdPahV8bw4AVXof89xj4BlTkkvitE&s=10'
+                },
+                {
+                    id: 'w7',
+                    name: '7. Hamstring germe',
+                    sets: '3 Set × 30 Sn (Her bacak)',
+                    desc: 'Bacak arkası kaslarını esnetme.',
+                    motoTip: 'Sürücülerin sık yaşadığı bacak arkası kısalıklarını açarak alt sırta binen çekme kuvvetini hafifletir.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOwTzDNEiNJXEizaFf-m0gMT8zZTW5ZMb1J8Rq5p5EBn4a7NBE3b7pvZM&s=10'
+                }
+            ],
+            friday: [
+                {
+                    id: 'f1',
+                    name: '1. Pelvik tilt',
+                    sets: '2 Set × 10 Tekrar',
+                    desc: 'Pelvik hareketlilik ve bel bölgesi farkındalığı.',
+                    motoTip: 'Antrenman öncesi bel bölgesini sürüşe hazırlamak için ideal nötrleme hareketi.',
+                    imgUrl: 'https://cdn.vectorstock.com/i/1000v/99/02/pelvic-tilt-exercise-woman-marching-vector-48059902.jpg'
+                },
+                {
+                    id: 'f2',
+                    name: '2. Dead Bug',
+                    sets: '3 Set × 8 Tekrar',
+                    desc: 'Çapraz koordinasyon ve core kontrolü.',
+                    motoTip: 'Ani fren ve gaz açma reaksiyonlarında vücut dengesini koruma yeteneğini geliştirir.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73dmkUfjLViVvl-5gd8zqK5lfqJMMGcvg-WwmKZXOdE_03dYiTAxFfK0&s=10'
+                },
+                {
+                    id: 'f3',
+                    name: '3. Bird Dog',
+                    sets: '3 Set × 10 Tekrar',
+                    desc: 'Omurga etrafındaki stabilizatörlerin fonksiyonel kuvveti.',
+                    motoTip: 'Bozuk yol yüzeylerinde veya çukurlarda gidon kontrolünü kaybetmeden vücut duruşunu korumayı sağlar.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ0VaPoCUO0lKmjB_LCAt4yMKWPyYNTIFRWSRy-2qAye5yqr5hAM2rz8g&s=10'
+                },
+                {
+                    id: 'f4',
+                    name: '4. Squat',
+                    sets: '3 Set × 12 Tekrar',
+                    desc: 'Vücut ağırlığıyla çömelme ve bacak kuvveti geliştirme.',
+                    motoTip: 'Motoru trafikte durdururken, ayakları yere basarken ve off-road/enduro sürüşlerinde bacakların emici gücünü artırır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc_Epdopal29IXZkexasFVSKfk04sPMFkwJ1vbx2EsteqbSt7WP8I7eWRC&s=10'
+                },
+                {
+                    id: 'f5',
+                    name: '5. Hip Hinge',
+                    sets: '3 Set × 12 Tekrar',
+                    desc: 'Kalçayı geriye atarak omurgayı bozmadan öne eğilme mekaniği.',
+                    motoTip: 'Motosiklete binerken, inerken ve depoya doğru eğilirken omurgayı koruyan doğru mekanik alışkanlığı kazandırır.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvRA51U_xDs0j-cNe41tSnWNq2eqkF_CMwyi0G_LXTaAFKUH7AqbdL48o&s=10'
+                },
+                {
+                    id: 'f6',
+                    name: '6. Step-Up',
+                    sets: '3 Set × 10 Tekrar (Her bacak)',
+                    desc: 'Yüksek bir basamağa kontrollü çıkıp inme.',
+                    motoTip: 'Ağır touring veya adventure motorların ayaklıklarına çıkarken ve dur-kalk trafikte bacak dayanıklılığını destekler.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG3f52VpRe-8XzBAr8AycTzTCFCdWhLqg6MiwS86I0HJ-PsH5M6JTNp8k&s=10'
+                },
+                {
+                    id: 'f7',
+                    name: '7. Piriformis / gluteal germe',
+                    sets: '3 Set × 30 Sn (Her taraf)',
+                    desc: 'Derin kalça kaslarını esnetme.',
+                    motoTip: 'Uzun sürüşlerde siyatiğe baskı yapabilen kalça kası gerginliğini ve uyuşmalarını anında çözer.',
+                    imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSttgtoaVz6fDpI3Q7zLc3eT6UL5bUh7b2WcPYsK4cm2FnwSJR_NDuzj9U&s=10'
+                }
+            ]
+        };
+
+        // State Management
+        let completedExercises = JSON.parse(localStorage.getItem('moto_pt_completed') || '{}');
+
+        // Render Programs on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPrograms();
+            updateGlobalCounter();
+        });
+
+        function renderPrograms() {
+            ['monday', 'wednesday', 'friday'].forEach(day => {
+                const container = document.getElementById(`list-${day}`);
+                if (!container) return;
+                
+                container.innerHTML = '';
+                programs[day].forEach(ex => {
+                    const isDone = completedExercises[ex.id] || false;
+                    const card = document.createElement('div');
+                    card.className = `bg-industrial-900 border ${isDone ? 'border-moto-orange/50 bg-industrial-900/90' : 'border-industrial-700'} rounded-2xl p-5 flex flex-col justify-between transition-all hover:border-industrial-600 shadow-lg relative overflow-hidden group`;
+                    
+                    let imageSection = '';
+                    if (ex.imgUrl) {
+                        imageSection = `
+                            <div class="mb-4 overflow-hidden rounded-xl border border-industrial-700/60 bg-industrial-950 flex items-center justify-center h-44 p-2 relative">
+                                <img src="${ex.imgUrl}" alt="${ex.name}" class="max-h-full max-w-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-xs text-gray-500\'>Görsel yüklenemedi</span>';">
+                            </div>
+                        `;
+                    }
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-start justify-between gap-4 mb-3">
+                                <div>
+                                    <span class="text-xs font-bold text-moto-orange uppercase tracking-wider">${ex.sets}</span>
+                                    <h4 class="text-base sm:text-lg font-bold text-white mt-0.5">${ex.name}</h4>
+                                </div>
+                                <button onclick="toggleExercise('${ex.id}')" class="w-9 h-9 rounded-xl flex items-center justify-center transition-all ${isDone ? 'bg-moto-orange text-industrial-950 font-bold shadow-md shadow-moto-orange/30' : 'bg-industrial-800 text-gray-400 hover:text-white border border-industrial-700'}">
+                                    <i class="fa-solid ${isDone ? 'fa-check' : 'fa-check'}"></i>
+                                </button>
+                            </div>
+                            ${imageSection}
+                            <p class="text-gray-300 text-xs sm:text-sm mb-4 leading-relaxed">${ex.desc}</p>
+                        </div>
+                        <div class="bg-industrial-950/80 border border-industrial-800/80 rounded-xl p-3.5 mt-2">
+                            <div class="flex items-center space-x-2 text-moto-yellow text-xs font-bold uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <span>Motorcu Ergonomi Notu</span>
+                            </div>
+                            <p class="text-gray-400 text-xs leading-relaxed">${ex.motoTip}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+        }
+
+        // Tab Switching Logic
+        function switchTab(day) {
+            document.querySelectorAll('.program-tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 text-gray-400 hover:text-white hover:bg-industrial-800 flex items-center justify-center space-x-2';
+            });
+
+            document.getElementById(`content-${day}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-btn-${day}`);
+            activeBtn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 bg-moto-orange text-industrial-950 shadow-lg shadow-moto-orange/20 flex items-center justify-center space-x-2';
+        }
+
+        // Toggle Exercise Completion
+        function toggleExercise(id) {
+            completedExercises[id] = !completedExercises[id];
+            localStorage.setItem('moto_pt_completed', JSON.stringify(completedExercises));
+            renderPrograms();
+            updateGlobalCounter();
+            
+            if (completedExercises[id]) {
+                showToast('Egzersiz tamamlandı olarak işaretlendi!');
+            }
+        }
+
+        // Update Counter Display
+        function updateGlobalCounter() {
+            let total = 0;
+            let completed = 0;
+            
+            Object.values(programs).forEach(list => {
+                list.forEach(ex => {
+                    total++;
+                    if (completedExercises[ex.id]) completed++;
+                });
+            });
+
+            const counterEl = document.getElementById('completed-counter');
+            if (counterEl) {
+                counterEl.innerText = `${completed} / ${total}`;
+            }
+        }
+
+        // Toast Notification System
+        function showToast(message) {
+            const toast = document.getElementById('custom-toast');
+            const msgEl = document.getElementById('toast-message');
+            msgEl.innerText = message;
+            
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3000);
+        }
+
+        // Interactive Stopwatch Logic
+        let timerInterval = null;
+        let timeLeft = 30;
+        let timerRunning = false;
+
+        function openTimerModal() {
+            document.getElementById('timer-modal').classList.remove('hidden');
+        }
+
+        function closeTimerModal() {
+            document.getElementById('timer-modal').classList.add('hidden');
+            stopTimer();
+        }
+
+        function setTimerSeconds(sec) {
+            stopTimer();
+            timeLeft = sec;
+            updateTimerDisplay();
+        }
+
+        function toggleTimer() {
+            if (timerRunning) {
+                stopTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            if (timeLeft <= 0) timeLeft = 30;
+            timerRunning = true;
+            document.getElementById('timer-toggle-btn').innerText = 'Durdur';
+            document.getElementById('timer-toggle-btn').className = 'flex-1 bg-industrial-700 hover:bg-industrial-600 text-white font-extrabold py-3 rounded-xl transition-all uppercase text-sm';
+            document.getElementById('timer-status').innerText = 'Sayaç Çalışıyor...';
+
+            timerInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateTimerDisplay();
+                } else {
+                    stopTimer();
+                    document.getElementById('timer-status').innerText = 'Süre Doldu! Dinlenme Bitti.';
+                    showToast('Süre tamamlandı! Sıradaki sete geçebilirsiniz.');
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            timerRunning = false;
+            clearInterval(timerInterval);
+            const toggleBtn = document.getElementById('timer-toggle-btn');
+            if (toggleBtn) {
+                toggleBtn.innerText = 'Başlat';
+                toggleBtn.className = 'flex-1 bg-moto-orange hover:bg-moto-accent text-industrial-950 font-extrabold py-3 rounded-xl transition-all uppercase text-sm shadow-lg shadow-moto-orange/30';
+            }
+            const statusEl = document.getElementById('timer-status');
+            if (statusEl) statusEl.innerText = 'Beklemede';
+        }
+
+        function resetTimer() {
+            stopTimer();
+            timeLeft = 30;
+            updateTimerDisplay();
+            document.getElementById('timer-status').innerText = 'Hazır';
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const secs = (timeLeft % 60).toString().padStart(2, '0');
+            const display = document.getElementById('timer-display');
+            if (display) display.innerText = `${mins}:${secs}`;
+        }
+    </script>
+</body>
+</html>
